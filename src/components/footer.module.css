@@ -1,0 +1,16 @@
+.footer {
+    background-color: #3F5DB3;
+    color: white;
+}
+
+.footer > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 190px;
+}
+
+/* .pokeapi a {
+    color: white;
+    text-decoration: underline;
+} */

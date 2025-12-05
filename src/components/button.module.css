@@ -1,0 +1,9 @@
+.button {
+    background-color: var(--color-blue-200);
+    color: var(--color-blue-500);
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font-alternative);
+}

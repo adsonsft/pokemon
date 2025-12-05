@@ -15,6 +15,43 @@ body {
     --color-blue-500: #3F67BA;
     --color-red-200: rgba(194, 0, 1, .25);
     --color-red-500: #C20001;
+
+    --color-bug: #9BBA48;
+    --bg-bug: rgba(156, 186, 72, 0.2);
+    --color-dark: #595761;
+    --bg-dark: rgba(89, 87, 97, 0.2);
+    --color-dragon: #2C6AC1;
+    --bg-dragon: rgba(44, 106, 193, 0.2);
+    --color-electric: #EED967;
+    --bg-electric: rgba(238, 218, 103, 0.2);
+    --color-fairy: #E296E1;
+    --bg-fairy: rgba(226, 150, 225, 0.2);
+    --color-fighting: #C44D61;
+    --bg-fighting: rgba(196, 77, 97, 0.2);
+    --color-fire: #F66D6D;
+    --bg-fire: rgba(246, 109, 109, 0.2);
+    --color-flying: #A6BBE8;
+    --bg-flying: rgba(166, 187, 232, 0.2);
+    --color-ghost: #616EB7;
+    --bg-ghost: rgba(97, 110, 183, 0.2);
+    --color-grass: #73B861;
+    --bg-grass: rgba(114, 184, 97, 0.2);
+    --color-ground: #CE8056;
+    --bg-ground: rgba(206, 128, 86, 0.2);
+    --color-ice: #8BCEC1;
+    --bg-ice: rgba(139, 206, 193, 0.2);
+    --color-normal: #A0A29F;
+    --bg-normal: rgba(160, 162, 159, 0.2);
+    --color-poison: #AC6ACA;
+    --bg-poison: rgba(172, 106, 202, 0.2);
+    --color-psychic: #EB8B85;
+    --bg-psychic: rgba(235, 140, 133, 0.2);
+    --color-rock: #8BCEC1;
+    --bg-rock: rgba(139, 206, 193, 0.2);
+    --color-steel: #6594A1;
+    --bg-steel: rgba(101, 148, 161, 0.2);
+    --color-water: #88A3D4;
+    --bg-water: rgba(136, 163, 212, 0.2);
 }
 
 img {
@@ -23,6 +60,7 @@ img {
 }
 
 button {
+    background-color: transparent;
     cursor: pointer;
     border: 0;
 }
@@ -32,8 +70,15 @@ button:disabled {
 }
 
 a {
-    text-decoration: none;
-    display: block;
+    /* text-decoration: none; */
+    color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 1232px;
+    padding: 0 16px;
+    margin: 0 auto;
 }
 
 /* Titles */
@@ -63,4 +108,17 @@ h3 {
     line-height: 1.5;
     font-weight: 600;
     font-size: 18px;
+}
+
+/* slide */
+.slide-pokeballs .swiper-pagination {
+    top: initial;
+    bottom: calc(288px + 77px);
+    left: initial;
+    right: 16px;
+    max-width: max-content;
+}
+
+.slide-pokeballs .swiper-pagination-bullet {
+    background-color: white;
 }

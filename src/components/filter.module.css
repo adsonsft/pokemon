@@ -1,0 +1,94 @@
+.types {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+
+.type {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    filter: grayscale(100%);
+    opacity: .6;
+    transition: all 200ms ease;
+    cursor: pointer;
+}
+
+.type.active,
+.type:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon img {
+    max-height: 28px;
+}
+
+.text {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* .text.default {
+    color: var(--color-blue-500);
+}
+.text.bug {
+    color: var(--color-bug);
+}
+.text.dark {
+    color: var(--color-dark);
+}
+.text.dragon {
+    color: var(--color-dragon);
+}
+.text.electric {
+    color: var(--color-electric);
+}
+.text.fairy {
+    color: var(--color-fairy);
+}
+.text.fighting {
+    color: var(--color-fighting);
+}
+.text.fire {
+    color: var(--color-fire);
+}
+.text.flying {
+    color: var(--color-flying);
+}
+.text.ghost {
+    color: var(--color-ghost);
+}
+.text.grass {
+    color: var(--color-grass);
+}
+.text.ground {
+    color: var(--color-ground);
+}
+.text.ice {
+    color: var(--color-ice);
+}
+.text.poison {
+    color: var(--color-poison);
+}
+.text.psychic {
+    color: var(--color-psychic);
+}
+.text.rock {
+    color: var(--color-rock);
+}
+.text.steel {
+    color: var(--color-steel);
+}
+.text.water {
+    color: var(--color-water);
+} */
