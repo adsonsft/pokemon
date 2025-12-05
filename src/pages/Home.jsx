@@ -32,6 +32,7 @@ function Home() {
   const [details, setDetails] = useState({})
   const [typesList, setTypesList] = useState({})
   const [search, setSearch] = useState("")
+  const [sent, setSent] = useState(false)
 
   // getPokemons will fetch the url and store
   // the response content into react states
@@ -77,6 +78,8 @@ function Home() {
   // and store the response in the list
   async function searchPokemon(e, name) {
     e.preventDefault()
+
+    if (!name || sent.name === name) return null
     
     setFilter(0)
     setPokemonsCount(1)
@@ -84,6 +87,7 @@ function Home() {
       name: name,
       url: `${API}pokemon/${name}`
     }])
+    setSent({name: name})
   }
 
   // filterPokemon will get only pokemons
