@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import styles from "./search-bar.module.css"
 import SearchSVG from "../assets/icon-search.svg?react"
 
-function SearchBar({ searchPokemon, filter }) {
-    const [search, setSearch] = useState("")
+function SearchBar({ searchPokemon, filter, search, setSearch }) {
     const inputRef = useRef(null)
-
 
     function handleClick() {
         inputRef.current.focus()

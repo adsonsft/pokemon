@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import styles from "./filter.module.css"
 
-function Filter({ getPokemons, filterPokemons, scrollToPokemons, filter }) {
-  const [active, setActive] = useState(0)
-
+function Filter({ getPokemons, filterPokemons, scrollToPokemons, filter, setFilter, search }) {
   const TYPES = [
     "All",
     "Bug",
@@ -25,14 +23,14 @@ function Filter({ getPokemons, filterPokemons, scrollToPokemons, filter }) {
     "Steel",
     "Water",
   ]
-
+  
   useEffect(() => {
-    if (active === 0) {
+    if (filter === 1) {
       getPokemons()
     } else {
-      filterPokemons(TYPES[active].toLowerCase())
+      if (filter > 1) filterPokemons(TYPES[filter - 1].toLowerCase(), filter)
     }
-  }, [active])
+  }, [filter])
 
   return (
     <ul className={styles.types}>
@@ -41,10 +39,10 @@ function Filter({ getPokemons, filterPokemons, scrollToPokemons, filter }) {
           return (
             <li
               key={t}
-              className={`${styles.type} ${active === i ? styles.active : ""}`}
+              className={`${styles.type} ${filter === i + 1 ? styles.active : ""}`}
               onClick={
                 () => {
-                  setActive(i)
+                  setFilter(i + 1)
                   scrollToPokemons()
                 }}>
               <div className={styles.icon}>

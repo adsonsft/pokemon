@@ -25,12 +25,13 @@ function Home() {
   const [pokemonsVisible, setPokemonsVisible] = useState(0)
   const [pokemonsCount, setPokemonsCount] = useState(null)
   const [nextPage, setNextPage] = useState(null)
-  const [filter, setFilter] = useState(false)
+  const [filter, setFilter] = useState(1)
   const { data, err, loading, request } = useFetch()
   const pokemonSectionRef = useRef(null)
   const [detailsModal, setDetailsModal] = useState(null)
   const [details, setDetails] = useState({})
   const [typesList, setTypesList] = useState({})
+  const [search, setSearch] = useState("")
 
   // getPokemons will fetch the url and store
   // the response content into react states
@@ -72,16 +73,12 @@ function Home() {
     }
   }
 
-  // useEffect(() => {
-  //   if (details) console.log(details)
-  // }, [details])
-
   // searchPokemon will fetch a single pokemon
   // and store the response in the list
   async function searchPokemon(e, name) {
     e.preventDefault()
-
-    setFilter(false)
+    
+    setFilter(0)
     setPokemonsCount(1)
     setPokemonsList([{
       name: name,
@@ -91,7 +88,7 @@ function Home() {
 
   // filterPokemon will get only pokemons
   // that corresponding to the filter
-  async function filterPokemons(type) {
+  async function filterPokemons(type, index) {
     const { responseJSON } = await request(`${API}/type/${type}`)
 
     let temp = []
@@ -103,7 +100,7 @@ function Home() {
     setPokemonsCount(responseJSON.pokemon.length)
     setPokemonsVisible(9)
 
-    if (!filter) setFilter(true)
+    if (!filter) setFilter(index)
     
     scrollToPokemons()
   }
@@ -208,7 +205,7 @@ function Home() {
       <div className={styles.search}>
         <div className="container">
           <h2>Select your pokémon</h2>
-          <SearchBar searchPokemon={searchPokemon} filter={filter} />
+          <SearchBar searchPokemon={searchPokemon} filter={filter} search={search} setSearch={setSearch} />
         </div>
       </div>
 
@@ -218,14 +215,16 @@ function Home() {
             getPokemons={getPokemons}
             filterPokemons={filterPokemons}
             scrollToPokemons={scrollToPokemons}
+            setFilter={setFilter}
             filter={filter}
+            search={search}
           />
 
           <div className={styles.content}>
             <h2 className={styles.title}>
               {loading ? "Searching" : pokemonsCount === 0 ? "0 Pokémons" : pokemonsCount > 1 ? pokemonsCount + " Pokémons" : pokemonsCount + " Pokémon"}
             </h2>
-            {pokemonsList && <Cards pokemons={filter ? pokemonsList.slice(0, pokemonsVisible) : pokemonsList} getPokemon={getPokemon} detailsModal={setDetailsModal} />}
+            {pokemonsList && <Cards pokemons={filter === 1 || filter === 0 ? pokemonsList : pokemonsList.slice(0, pokemonsVisible)} getPokemon={getPokemon} detailsModal={setDetailsModal} />}
             {pokemonsCount > 1 &&
               (loading ? (
                 <Button disabled>Carregando...</Button>
