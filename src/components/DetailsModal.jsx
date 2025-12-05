@@ -39,8 +39,6 @@ function DetailsModal({ details, options, setOptions, getType, typesList }) {
     }
 
     function getStats() {
-        console.log(pokemon.stats)
-
         const temp = []
 
         pokemon.stats.forEach((s) => {
@@ -62,10 +60,6 @@ function DetailsModal({ details, options, setOptions, getType, typesList }) {
         getWeaknesses()
         getStats()
     }, [])
-
-    // useEffect(() => {
-    //     console.log(stats)
-    // }, [stats])
     
     function closeModal(e) {
         if (e.target === e.currentTarget) {

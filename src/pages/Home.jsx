@@ -121,13 +121,15 @@ function Home() {
   // loadMore will get more pokemons and
   // add to the pokemonsList
   async function loadMore() {
-    if (filter) {
-      setPokemonsVisible((previous) => previous + 9)
-    } else {
+    if (!filter) {
+      return
+    } else if (filter === 1) {
       const {responseJSON} = await request(nextPage)
 
       setPokemonsList((previous) => [...previous, ...responseJSON.results])
       setNextPage(responseJSON.next)
+    } else {
+      setPokemonsVisible((previous) => previous + 9)
     }
   }
 
