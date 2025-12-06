@@ -19,8 +19,9 @@ import bag from "../assets/bag.svg"
 import arrowDown from "../assets/arrow-down-white.svg"
 
 function Home() {
+  const [mobile, setMobile] = useState(null)
   const API = "https://pokeapi.co/api/v2/"
-  const DEFAULT_CARDS = API + "pokemon?limit=9&offset=0"
+  const DEFAULT_CARDS = `${API}pokemon?limit=${window.matchMedia("(max-width: 991px)").matches ? 6 : 9}&offset=0"`
   const [pokemonsList, setPokemonsList] = useState(null)
   const [pokemonsVisible, setPokemonsVisible] = useState(0)
   const [pokemonsCount, setPokemonsCount] = useState(null)
@@ -102,7 +103,7 @@ function Home() {
 
     setPokemonsList(temp)
     setPokemonsCount(responseJSON.pokemon.length)
-    setPokemonsVisible(9)
+    setPokemonsVisible(mobile ? 6 : 9)
 
     if (!filter) setFilter(index)
     
@@ -129,7 +130,7 @@ function Home() {
       setPokemonsList((previous) => [...previous, ...responseJSON.results])
       setNextPage(responseJSON.next)
     } else {
-      setPokemonsVisible((previous) => previous + 9)
+      setPokemonsVisible((previous) => previous + mobile ? 6 : 9)
     }
   }
 
@@ -146,9 +147,13 @@ function Home() {
     }, [50])
   }
 
-  // fetch pokemons for initial page
   useEffect(() => {
-    getPokemons(DEFAULT_CARDS)
+    // Check if is mobile
+    const { matches } = window.matchMedia("(max-width: 991px)")
+    setMobile(matches)
+
+    // fetch pokemons for initial page
+    getPokemons()
   }, [])
 
   return (
@@ -209,21 +214,22 @@ function Home() {
       </section>
 
       <div className={styles.search}>
-        <div className="container">
+        <div className={`container ${styles.container}`}>
           <h2>Select your pokémon</h2>
           <SearchBar searchPokemon={searchPokemon} filter={filter} search={search} setSearch={setSearch} />
         </div>
       </div>
 
       <div ref={pokemonSectionRef} className={styles.pokemons}>
-        <div className="container">
+        <div className={`container ${styles.container}`}>
           <Filter
             getPokemons={getPokemons}
             filterPokemons={filterPokemons}
             scrollToPokemons={scrollToPokemons}
             setFilter={setFilter}
             filter={filter}
-            search={search}
+            mobile={mobile}
+            setSent={setSent}
           />
 
           <div className={styles.content}>

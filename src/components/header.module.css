@@ -6,7 +6,7 @@
     z-index: 100;
 }
 
-.header > div {
+.container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,4 +24,14 @@
 
 .description span {
     color: white;
+}
+
+@media(max-width: 991px) {
+    .container {
+        justify-content: center;
+    }
+
+    .description {
+        display: none;
+    }
 }
