@@ -70,7 +70,6 @@ button:disabled {
 }
 
 a {
-    /* text-decoration: none; */
     color: white;
 }
 
@@ -121,4 +120,15 @@ h3 {
 
 .slide-pokeballs .swiper-pagination-bullet {
     background-color: white;
+}
+
+@media(max-width: 640px) {
+    .container {
+        max-width: 400px;
+        padding: 0 10px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
 }

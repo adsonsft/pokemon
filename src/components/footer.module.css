@@ -3,14 +3,17 @@
     color: white;
 }
 
-.footer > div {
+.container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 190px;
 }
 
-/* .pokeapi a {
-    color: white;
-    text-decoration: underline;
-} */
+@media(max-width: 640px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 32px;
+    }
+}

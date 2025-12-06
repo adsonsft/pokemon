@@ -53,11 +53,24 @@
     height: 840px;
     position: relative;
     z-index: 3;
+    pointer-events: none;
+}
+
+.slide .imgs {
+    position: relative;
 }
 
 .slide.blue .imgs .pokeball {
-    margin-top: -65px;
-    margin-left: 13px;
+    position: relative;
+    top: -65px;
+    left: 13px;
+}
+
+.slide .imgs .lighting {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate3d(-50%, -100%, 0)
 }
 
 .tag {
@@ -210,26 +223,18 @@
 }
 
 @media(max-width: 991px) {
-    /* .hero {
-        margin-bottom: -144px;
-    } */
-
     .slide {
-        /* background-position: bottom 144px center; */
         background-size: 1000px, cover;
     }
 
-    .slide.red .imgs {
-        margin-top: -35px;
-    }
+    /* .slide.red .imgs {
+        position: relative;
+        top: -35px;
+    } */
 
     .slide.blue .imgs .pokeball {
-        margin-top: -10px;
+        top: -100px;
     }
-
-    /* .slide::before {
-        height: 144px;
-    } */
 
     .text {
         max-width: 600px;
