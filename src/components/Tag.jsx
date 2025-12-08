@@ -1,15 +1,11 @@
 import styles from "./tag.module.css"
-import Bag from "../assets/bag.svg?react"
 
-function Tag({ children, color }) {
-    return (
-        <div className={`${styles.tag} ${color === "blue" ? styles.blue : styles.red}`}>
-            <div className={styles.wrapper}>
-                <Bag />
-            </div>
-            <span className={styles.text}>{children}</span>
-        </div>
-    )
+function Tags({ children, type }) {
+  return (
+    <li className={styles.type} style={{backgroundColor: `var(--bg-${type})`}}>
+      <span style={{color: `var(--color-${type})`}}>{children}</span>
+    </li>
+  )
 }
 
-export default Tag
+export default Tags

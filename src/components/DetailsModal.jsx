@@ -4,7 +4,7 @@ import styles from "./details-modal.module.css"
 
 // images
 import close from "../assets/close.svg"
-import Tags from "./Tags"
+import Tags from "./Tag"
 import StatsBar from "./StatsBar"
 import Icons from "./Icons"
 import Backgrounds from "./Backgrounds"

@@ -1,45 +1,11 @@
-.tag {
-    max-width: 120px;
-    height: 32px;
-    padding: 4px 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 8px;
-    background-color: white;
-    border-radius: 244px;
+.type {
+    padding: 4px 12px;
+    border-radius: 2px;
 }
 
-.wrapper {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    padding: 4px;
-}
-
-.red .wrapper {
-    background-color: var(--color-red-200);
-}
-
-.blue .wrapper {
-    background-color: var(--color-blue-200);
-}
-
-.wrapper img {
-    margin: auto;
-}
-
-.text {
-    font-family: var(--font-default);
-    font-size: 15px;
+.type span {
+    font-family: var(--font-alternative);
+    /* font-size: 13px; */
     font-weight: 600;
-    line-height: 1.5;
-}
-
-.red .text {
-    color: var(--color-red-500);
-}
-
-.blue .text {
-    color: var(--color-blue-500);
+    letter-spacing: -1%;
 }
