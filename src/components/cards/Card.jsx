@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import styles from "./card.module.css"
 import { Captalize } from "../helpers/Strings"
+import Icons from "../Icons"
 
 function Card({ name, url, getPokemon, detailsModal }) {
   const [img, setImg] = useState("")
@@ -35,12 +36,7 @@ function Card({ name, url, getPokemon, detailsModal }) {
             <h3>{name ? Captalize(name) : Captalize(single.name)}</h3>
           </div>
           <div className={styles.icon}>
-            {type && (
-              <img
-                src={`/types/icons/${type}.svg`}
-                alt={`pokemon type ${name} icon`}
-              />
-            )}
+            <Icons icon={Captalize(type)} />
           </div>
         </div>
       </li>

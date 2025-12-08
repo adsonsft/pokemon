@@ -194,12 +194,13 @@
 
 .pokemons .container {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: auto 1fr;
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    padding-left: 32px;
 }
 
 .content > button {
@@ -226,11 +227,6 @@
     .slide {
         background-size: 1000px, cover;
     }
-
-    /* .slide.red .imgs {
-        position: relative;
-        top: -35px;
-    } */
 
     .slide.blue .imgs .pokeball {
         top: -100px;

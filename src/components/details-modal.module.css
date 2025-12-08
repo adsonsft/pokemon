@@ -41,6 +41,25 @@
 .pokemon {
     width: 191px;
     position: relative;
+    display: flex;
+}
+
+.icon {
+    background-color: white;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.icon svg {
+    width: 28px;
+    height: 28px;
 }
 
 .pokemonImage {

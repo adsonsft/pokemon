@@ -1,0 +1,6 @@
+<svg className="iconAll" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="14" cy="14" r="8.25" stroke="#3E75C3" stroke-width="1.5"/>
+    <circle cx="13.9998" cy="14" r="2.52273" stroke="#3E75C3" stroke-width="1.5"/>
+    <path d="M11.1364 14H5" stroke="#3E75C3" stroke-width="1.5"/>
+    <path d="M21.9929 14L16.3286 14" stroke="#3E75C3" stroke-width="1.5"/>
+</svg>

@@ -1,23 +1,19 @@
 .types {
     display: flex;
     flex-direction: column;
-    row-gap: 32px;
+    row-gap: 10px;
+    padding-right: 32px;
+    border-right: 1px solid #EFF3F6;
+    height: fit-content;
 }
 
 .type {
     display: flex;
     align-items: center;
     gap: 16px;
-    filter: grayscale(100%);
-    opacity: .6;
     transition: all 200ms ease;
     cursor: pointer;
-}
-
-.type.active,
-.type:hover {
-    filter: grayscale(0);
-    opacity: 1;
+    --current-color: var(--color-gray);
 }
 
 .icon {
@@ -28,14 +24,23 @@
     justify-content: center;
 }
 
-.icon img {
-    max-height: 28px;
+.icon svg path {
+    fill: var(--current-color);
+    transition: fill .2s ease;
+}
+
+.icon :global(.iconAll) circle,
+.icon :global(.iconAll) path {
+    stroke: var(--current-color);
+    transition: stroke .2s ease;
 }
 
 .text {
     font-size: 15px;
     font-weight: 600;
     line-height: 1.5;
+    color: var(--current-color);
+    transition: color .2s ease;
 }
 
 @media(max-width: 991px) {
@@ -52,4 +57,82 @@
     .typeSelector:focus {
         border-color: var(--color-blue-500);
     }
+}
+
+/* All Classes */
+.active.all,
+.all:hover {
+    --current-color: var(--color-blue-500) 
+}
+.active.bug,
+.bug:hover {
+    --current-color: var(--color-bug) 
+}
+.active.dark,
+.dark:hover {
+    --current-color: var(--color-dark) 
+}
+.active.dragon,
+.dragon:hover {
+    --current-color: var(--color-dragon) 
+}
+.active.electric,
+.electric:hover {
+    --current-color: var(--color-electric) 
+}
+.active.fairy,
+.fairy:hover {
+    --current-color: var(--color-fairy) 
+}
+.active.fighting,
+.fighting:hover {
+    --current-color: var(--color-fighting) 
+}
+.active.fire,
+.fire:hover {
+    --current-color: var(--color-fire) 
+}
+.active.flying,
+.flying:hover {
+    --current-color: var(--color-flying) 
+}
+.active.ghost,
+.ghost:hover {
+    --current-color: var(--color-ghost) 
+}
+.active.grass,
+.grass:hover {
+    --current-color: var(--color-grass) 
+}
+.active.ground,
+.ground:hover {
+    --current-color: var(--color-ground) 
+}
+.active.ice,
+.ice:hover {
+    --current-color: var(--color-ice) 
+}
+.active.normal,
+.normal:hover {
+    --current-color: var(--color-normal) 
+}
+.active.poison,
+.poison:hover {
+    --current-color: var(--color-poison) 
+}
+.active.psychic,
+.psychic:hover {
+    --current-color: var(--color-psychic) 
+}
+.active.rock,
+.rock:hover {
+    --current-color: var(--color-rock) 
+}
+.active.steel,
+.steel:hover {
+    --current-color: var(--color-steel) 
+}
+.active.water,
+.water:hover {
+    --current-color: var(--color-water) 
 }

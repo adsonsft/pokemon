@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import styles from "./filter.module.css"
+import Icons from "./Icons"
 
 function Filter({
   getPokemons,
@@ -10,7 +11,6 @@ function Filter({
   mobile,
   setSent
 }) {
-  const [selectFilter, setSelectFilter] = useState(0)
   const TYPES = [
     "All",
     "Bug",
@@ -65,25 +65,15 @@ function Filter({
             return (
               <li
                 key={t}
-                className={`${styles.type} ${filter === i + 1 ? styles.active : ""}`}
-                onSelect={() => {
+                className={`${styles.type} ${styles[t.toLowerCase()]} ${filter === i + 1 ? styles.active : ""}`}
+                onClick={() => {
                   setFilter(i + 1)
                   scrollToPokemons()
                 }}>
                 <div className={styles.icon}>
-                  <img
-                    src={`/types/icons/${t.toLowerCase()}.svg`}
-                    alt={`${t} ${t === "All" ? "types" : "type"}`}
-                  />
+                  <Icons icon={t} />
                 </div>
-                <span
-                  style={{
-                    color: `var(--color-${t === "All" ? "blue-500" : t.toLowerCase()
-                      })`,
-                  }}
-                  className={styles.text}>
-                  {t}
-                </span>
+                <span className={styles.text}>{t}</span>
               </li>
             )
           })}
