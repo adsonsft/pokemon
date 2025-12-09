@@ -24,25 +24,23 @@ function Card({ name, url, getPokemon, detailsModal }) {
     getCardData()
   }, [])
 
-  if (img) {
-    return (
-      <li className={styles.card} onClick={() => detailsModal((previous) => ({...previous, active: true, current: code}))}>
-        <div className={styles.img}>
-          <div ref={circleRef} className={styles.circle} style={{backgroundColor: `var(--bg-${type})`}} ></div>
-          <Image src={img} alt={`pokemon ${name ? name : single.name} image`} />
+  return (
+    <li className={styles.card} onClick={() => detailsModal((previous) => ({...previous, active: true, current: code}))}>
+      <div className={styles.img}>
+        <div ref={circleRef} className={styles.circle} style={{backgroundColor: `var(--bg-${type})`}} ></div>
+        <Image src={img} alt={`pokemon ${name ? name : single.name} image`} />
+      </div>
+      <div className={styles.info}>
+        <div className={styles.text}>
+          <span>{`#${code}`}</span>
+          <h3>{name ? Captalize(name) : Captalize(single.name)}</h3>
         </div>
-        <div className={styles.info}>
-          <div className={styles.text}>
-            <span>{`#${code}`}</span>
-            <h3>{name ? Captalize(name) : Captalize(single.name)}</h3>
-          </div>
-          <div className={styles.icon}>
-            <Icons icon={Captalize(type)} />
-          </div>
+        <div className={styles.icon}>
+          <Icons icon={Captalize(type)} />
         </div>
-      </li>
-    )
-  } else return null
+      </div>
+    </li>
+  )
 }
 
 export default Card

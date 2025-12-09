@@ -9,10 +9,10 @@ function Image({...props}) {
         target.style.opacity = 1
     }
 
-    return(
+    return (
         <div className={styles.wrapper}>
             {skeleton && <div className={styles.skeleton}></div>}
-            <img onLoad={handleLoad} className={styles.img} {...props} />
+            {props.src && <img onLoad={handleLoad} className={styles.img} {...props} />}
         </div>
     )
 }

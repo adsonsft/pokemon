@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Captalize } from "./helpers/Strings"
 import styles from "./details-modal.module.css"
+import Image from "./Image"
 
 // images
 import close from "../assets/close.svg"
@@ -8,7 +9,6 @@ import Tags from "./Tag"
 import StatsBar from "./StatsBar"
 import Icons from "./Icons"
 import Backgrounds from "./Backgrounds"
-import Image from "./Image"
 
 function DetailsModal({ details, options, setOptions, getType, typesList }) {
     const [pokemon, setPokemon] = useState(details.pokemons[options.current])
@@ -72,17 +72,18 @@ function DetailsModal({ details, options, setOptions, getType, typesList }) {
 
     return (
         <div className={styles.wrapper} onClick={(e) => closeModal(e)}>
-            <div className={styles.modal}>
+            <div className={`${styles.modal} to-top`}>
                 <div className={styles.close} onClick={() => setOptions((previous) => ({...previous, active: false}))}>
-                    <img src={close} alt="close modal" />
+                    <Image src={close} alt="close modal"/>
                 </div>
 
                 {pokemon && <div className={styles.pokemon}>
                     <div className={styles.icon}>
                         <Icons icon={Captalize(pokemon.types[0].type.name)} />
                     </div>
-                    <Image className={styles.pokemonImage} src={pokemon.sprites.other.dream_world.front_default} alt={`pokemon ${pokemon.name} image`}/>
-                    {/* <img className={styles.pokemonImage} src={pokemon.sprites.other.dream_world.front_default} alt={`pokemon ${pokemon.name} image`} /> */}
+                    <div className={styles.pokemonImage}>
+                        <Image src={pokemon.sprites.other.dream_world.front_default} alt={`pokemon ${pokemon.name} image`}/>
+                    </div>
                     <Backgrounds bg={Captalize(pokemon.types[0].type.name)} />
                 </div>}
 
@@ -90,10 +91,10 @@ function DetailsModal({ details, options, setOptions, getType, typesList }) {
                     <h2 className={styles.name}>{Captalize(pokemon.name)} <span>#{options.current}</span></h2>
 
                     <ul className={styles.types}>
-                        {pokemon.types.map((t) => {
+                        {pokemon.types.map((t, index) => {
                             const type = t.type.name
                             return (
-                                <Tags key={type} type={type}>{type}</Tags>
+                                <Tags key={type} type={type} delay={`${index * 100}ms`}>{type}</Tags>
                             )
                         })}
                     </ul>
@@ -107,21 +108,21 @@ function DetailsModal({ details, options, setOptions, getType, typesList }) {
                     {weaknesses && <div>
                         <h3 className={styles.title}>Weaknesses</h3>
                         <ul className={styles.weaknesses}>
-                            {weaknesses.visible.map((w) => {
+                            {weaknesses.visible.map((w, index) => {
                                 return(
-                                    <Tags key={w} type={w}>{w}</Tags>
+                                    <Tags key={w} type={w} delay={`${index * 80}ms`}>{w}</Tags>
                                 )
                             })}
-                            {weaknesses.remaining.length > 0 && <span className={styles.remaining}>+{weaknesses.remaining.length}</span>}
+                            {weaknesses.remaining.length > 0 && <span className={`${styles.remaining} to-right`} style={{animationDelay: `${4 * 80}ms`}}>+{weaknesses.remaining.length}</span>}
                         </ul>
                     </div>}
 
                     {stats && <div>
                         <h3 className={styles.title}>Stats</h3>
-                        <ul>
+                        <ul className={styles.statsWrapper}>
                             {stats.map((s, index) => {
                                 return (
-                                    <StatsBar key={index + s.stat_base_value + s.stat_name} name={s.stat_name} baseValue={s.stat_base_value} />
+                                    <StatsBar key={index + s.stat_base_value + s.stat_name} name={s.stat_name} baseValue={s.stat_base_value} delay={`${index * 100}ms`} />
                                 )
                             })}
                         </ul>

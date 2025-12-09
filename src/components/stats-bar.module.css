@@ -1,12 +1,13 @@
 .stat {
-    display: flex;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: auto;
     align-items: center;
-    justify-content: space-between;
     column-gap: 16px;
 }
 
 .bar {
-    width: 283px;
+    width: 100%;
     height: 3px;
     background-color: #EFF3F6;
     overflow: hidden;
@@ -36,6 +37,11 @@
     width: 0;
     height: 100%;
     background-color: var(--color-red-500);
-    z-index: 2;
+    animation: value-animation 1s ease forwards;
 }
 
+@keyframes value-animation {
+    to {
+        width: var(--w);
+    }
+}
