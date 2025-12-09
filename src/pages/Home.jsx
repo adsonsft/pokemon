@@ -130,7 +130,7 @@ function Home() {
       setPokemonsList((previous) => [...previous, ...responseJSON.results])
       setNextPage(responseJSON.next)
     } else {
-      setPokemonsVisible((previous) => previous + mobile ? 6 : 9)
+      setPokemonsVisible((previous) => previous + (mobile ? 6 : 9))
     }
   }
 
