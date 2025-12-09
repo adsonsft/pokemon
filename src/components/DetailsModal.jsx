@@ -8,6 +8,7 @@ import Tags from "./Tag"
 import StatsBar from "./StatsBar"
 import Icons from "./Icons"
 import Backgrounds from "./Backgrounds"
+import Image from "./Image"
 
 function DetailsModal({ details, options, setOptions, getType, typesList }) {
     const [pokemon, setPokemon] = useState(details.pokemons[options.current])
@@ -80,7 +81,8 @@ function DetailsModal({ details, options, setOptions, getType, typesList }) {
                     <div className={styles.icon}>
                         <Icons icon={Captalize(pokemon.types[0].type.name)} />
                     </div>
-                    <img className={styles.pokemonImage} src={pokemon.sprites.other.dream_world.front_default} alt={`pokemon ${pokemon.name} image`} />
+                    <Image className={styles.pokemonImage} src={pokemon.sprites.other.dream_world.front_default} alt={`pokemon ${pokemon.name} image`}/>
+                    {/* <img className={styles.pokemonImage} src={pokemon.sprites.other.dream_world.front_default} alt={`pokemon ${pokemon.name} image`} /> */}
                     <Backgrounds bg={Captalize(pokemon.types[0].type.name)} />
                 </div>}
 

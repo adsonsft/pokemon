@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import styles from "./card.module.css"
 import { Captalize } from "../helpers/Strings"
 import Icons from "../Icons"
+import Image from "../Image"
 
 function Card({ name, url, getPokemon, detailsModal }) {
   const [img, setImg] = useState("")
@@ -28,7 +29,7 @@ function Card({ name, url, getPokemon, detailsModal }) {
       <li className={styles.card} onClick={() => detailsModal((previous) => ({...previous, active: true, current: code}))}>
         <div className={styles.img}>
           <div ref={circleRef} className={styles.circle} style={{backgroundColor: `var(--bg-${type})`}} ></div>
-          <img src={img} alt={`pokemon ${name ? name : single.name} image`} />
+          <Image src={img} alt={`pokemon ${name ? name : single.name} image`} />
         </div>
         <div className={styles.info}>
           <div className={styles.text}>
