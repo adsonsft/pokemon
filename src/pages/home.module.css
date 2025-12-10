@@ -50,27 +50,11 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 840px;
+    justify-content: space-between;
+    height: 830px;
     position: relative;
     z-index: 3;
     pointer-events: none;
-}
-
-.slide .imgs {
-    position: relative;
-}
-
-.slide.blue .imgs .pokeball {
-    position: relative;
-    top: -65px;
-    left: 13px;
-}
-
-.slide .imgs .lighting {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate3d(-50%, -100%, 0)
 }
 
 .tag {
@@ -80,7 +64,7 @@
     column-gap: 8px;
     border-radius: 244px;
     padding: 4px 18px 4px 6px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .tag .iconWrapper {
@@ -117,7 +101,6 @@
     flex-direction: column;
     align-items: center;
     row-gap: 8px;
-    margin-bottom: 96px;
 }
 
 .text p {
@@ -130,11 +113,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     max-width: 798px;
 }
 
 .imgs .lighting {
-    max-width: 169px;
+    max-width: 200px;
 }
 
 .explore {
@@ -228,8 +212,13 @@
         background-size: 1000px, cover;
     }
 
-    .slide.blue .imgs .pokeball {
-        top: -100px;
+    .slide .container {
+        height: 800px;
+    }
+
+    .slide .imgs {
+        position: relative;
+        top: -130px;
     }
 
     .text {
@@ -247,7 +236,7 @@
     }
 
     .imgs {
-        max-width: 600px;
+        max-width: 500px;
     }
 
     .search .container {
@@ -258,6 +247,10 @@
         padding-bottom: 32px;
     }
 
+    .search h2 {
+        text-align: center;
+    }
+
     .pokemons .container {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -265,5 +258,48 @@
 
     .pokemons .content {
         align-items: center;
+    }
+}
+
+@media(max-width: 640px) {
+    .slide {
+        background-size: 760px, cover;
+        background-position: bottom 280px center;
+    }
+
+    .slide .container {
+        height: 740px;
+        overflow-x: clip;
+    }
+
+    .slide .imgs {
+        top: -160px;
+    }
+
+    .slide.blue h1 {
+        max-width: 250px;
+    }
+
+    .slide p {
+        max-width: 320px;
+    }
+
+    .slide .imgs {
+        width: 380px;
+        flex-shrink: 0;
+    }
+
+    .explore {
+        bottom: calc(288px + 20px);
+        row-gap: 28px;
+    }
+
+    .explore .iconWrapper {
+        width: 24px;
+        height: 24px;
+    }
+
+    .search h2 {
+        max-width: 220px;
     }
 }

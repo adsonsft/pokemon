@@ -162,20 +162,23 @@ function Home() {
         <Swiper pagination={true} modules={[Pagination, EffectFade]} effect="fade" className={`${styles.slideWrapper} slide-pokeballs`}>
           <SwiperSlide className={`${styles.slide} ${styles.red}`}>
             <div className={`${styles.container} container`}>
-              <div className={styles.tag}>
-                <div className={styles.iconWrapper}>
-                  <img src={bag} alt="a bag"/>
-                </div>
-                <span>pokedex</span>
-              </div>
               <div className={styles.text}>
+                <div className={styles.tag}>
+                  <div className={styles.iconWrapper}>
+                    <img src={bag} alt="a bag"/>
+                  </div>
+                  <span>pokedex</span>
+                </div>
+
                 <h1>Who is that Pokémon?</h1>
                 <p>The perfect guide for those who want to hunt Pokémons around the world</p>
               </div>
+
               <div className={styles.imgs}>
                 <img src={lighting} alt="lights" className={styles.lighting} />
                 <img src={redPokeball} alt="a red pokeball" className={styles.pokeball} />
               </div>
+              
               <div className={styles.explore} onClick={scrollToPokemons}>
                 <span>Explore</span>
                 <div className={styles.iconWrapper}>
@@ -186,26 +189,26 @@ function Home() {
           </SwiperSlide>
           <SwiperSlide className={`${styles.slide} ${styles.blue}`}>
             <div className={`${styles.container} container`}>
-              <div className={styles.tag}>
-                <div className={styles.iconWrapper}>
-                  <img src={bag} alt="a bag"/>
-                </div>
-                <span>pokedex</span>
-              </div>
               <div className={styles.text}>
+                <div className={styles.tag}>
+                  <div className={styles.iconWrapper}>
+                    <img src={bag} alt="a bag"/>
+                  </div>
+                  <span>pokedex</span>
+                </div>
                 <h1>Catch them all!</h1>
                 <p>The perfect guide for those who want to hunt Pokémons around the world</p>
               </div>
+
               <div className={styles.imgs}>
                 <img src={lighting} alt="lights" className={styles.lighting} />
                 <img src={bluePokeball} alt="a red pokeball" className={styles.pokeball} />
               </div>
-              <div className={styles.controls}>
-                <div className={styles.explore} onClick={scrollToPokemons}>
-                  <span>Explore</span>
-                  <div className={styles.iconWrapper}>
-                    <img src={arrowDown} alt="explore pokemons" />
-                  </div>
+
+              <div className={styles.explore} onClick={scrollToPokemons}>
+                <span>Explore</span>
+                <div className={styles.iconWrapper}>
+                  <img src={arrowDown} alt="explore pokemons" />
                 </div>
               </div>
             </div>
