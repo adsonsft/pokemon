@@ -2,6 +2,8 @@
 
 Frontend application originally built for a Coodboost course project. The initial version used **Pure JavaScript**, **HTML**, and **SASS**, but this version was rebuilt using **React** with **Vite** for a more modern component-based structure.
 
+[Link to the project](https://adson.dev/projects/pokemon)
+
 ## Purpose
 Display data from the [PokéAPI](https://pokeapi.co) in a **Single Page Application (SPA)** with smooth navigation and interactive UI elements.
 
