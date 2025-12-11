@@ -10,7 +10,7 @@ import StatsBar from "./StatsBar"
 import Icons from "./Icons"
 import Backgrounds from "./Backgrounds"
 
-function DetailsModal({ details, options, setOptions, getType, typesList }) {
+function DetailsModal({ details, options, setOptions, getType, typesList, mobile }) {
     const [pokemon, setPokemon] = useState(details.pokemons[options.current])
     const [weaknesses, setWeaknesses] = useState(null)
     const [stats, setStats] = useState(null)
@@ -32,8 +32,8 @@ function DetailsModal({ details, options, setOptions, getType, typesList }) {
             });
         }
         
-        const visible = temp.slice(0, 4)
-        const remaining = temp.slice(4)
+        let visible = temp.slice(0, mobile ? 3 : 4)
+        let remaining = temp.slice(mobile ? 3 : 4)
 
         setWeaknesses({
             visible: visible,
@@ -84,7 +84,9 @@ function DetailsModal({ details, options, setOptions, getType, typesList }) {
                     <div className={styles.pokemonImage}>
                         <Image src={pokemon.sprites.other.dream_world.front_default} alt={`pokemon ${pokemon.name} image`}/>
                     </div>
-                    <Backgrounds bg={Captalize(pokemon.types[0].type.name)} />
+                    <div className={styles.bg}>
+                        <Backgrounds bg={Captalize(pokemon.types[0].type.name)} mobile={mobile} />
+                    </div>
                 </div>}
 
                 <div className={styles.details}>
@@ -117,7 +119,7 @@ function DetailsModal({ details, options, setOptions, getType, typesList }) {
                         </ul>
                     </div>}
 
-                    {stats && <div>
+                    {stats && <div className={styles.statsSection}>
                         <h3 className={styles.title}>Stats</h3>
                         <ul className={styles.statsWrapper}>
                             {stats.map((s, index) => {

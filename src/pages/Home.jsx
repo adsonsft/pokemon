@@ -156,6 +156,11 @@ function Home() {
     getPokemons()
   }, [])
 
+  // prevent scroll while modal is active
+  useEffect(() => {
+    if(detailsModal) detailsModal.active ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "unset"
+  }, [detailsModal])
+
   return (
     <>
       <section className={styles.hero}>
@@ -253,7 +258,7 @@ function Home() {
         </div>
       </div>
 
-      {(detailsModal && detailsModal.active) && <DetailsModal details={details} options={detailsModal} setOptions={setDetailsModal} typesList={typesList} getType={getType} />}
+      {(detailsModal && detailsModal.active) && <DetailsModal details={details} options={detailsModal} setOptions={setDetailsModal} typesList={typesList} getType={getType} mobile={mobile} />}
     </>
   )
 }
