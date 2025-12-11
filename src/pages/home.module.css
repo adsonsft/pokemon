@@ -54,7 +54,6 @@
     height: 830px;
     position: relative;
     z-index: 3;
-    pointer-events: none;
 }
 
 .tag {
