@@ -184,6 +184,7 @@
 .content {
     display: flex;
     flex-direction: column;
+    width: 100%;
     padding-left: 32px;
 }
 
@@ -258,6 +259,7 @@
 
     .pokemons .content {
         align-items: center;
+        padding: 0;
     }
 }
 

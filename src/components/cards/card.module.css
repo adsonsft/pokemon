@@ -60,3 +60,9 @@
     width: 28px;
     height: 28px;
 }
+
+@media(max-width: 640px) {
+    .card {
+        max-width: 380px;
+    }
+}
